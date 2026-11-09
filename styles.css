@@ -232,3 +232,330 @@ textarea:focus-visible {
         min-height: 310px;
     }
 }
+
+/* ==========================================
+   IFRAH'S LITERARY JOURNAL
+   NEW IDENTITY — AUBERGINE & PEACH
+========================================== */
+
+:root {
+  --ink: #502B50;
+  --muted: #756677;
+  --blue: #502B50;
+  --blue2: #EFE6EF;
+  --lav: #F1EAF1;
+  --coral: #F2B995;
+  --peach: #F8E9DF;
+  --mint: #E9E1E9;
+  --yellow: #F4E8D9;
+  --line: #E6D8E1;
+  --white: #FFFCF8;
+  --bg: #F9F3E9;
+  --mauve: #96749B;
+}
+
+/* Main website appearance */
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.masthead {
+  background: transparent;
+}
+
+.wordmark,
+.hero-copy h1,
+.page-heading h1,
+.writer-name,
+.entry-row h2,
+.home-bottom h2,
+.article-content h1,
+.desk-subhead h2 {
+  color: var(--ink);
+}
+
+.wordmark span,
+.main-nav a,
+.heading-note,
+.small-note,
+.entry-row p,
+.entry-date,
+.prose p,
+.home-bottom p:not(.overline),
+.article-body {
+  color: var(--muted);
+}
+
+.main-nav a:hover,
+.main-nav a.current {
+  background: var(--blue2);
+  color: var(--ink);
+}
+
+.main-nav {
+  border-color: var(--line);
+}
+
+/* Section labels and headings */
+.overline,
+.hero-kicker span,
+.section-label span:last-child,
+.entry-kind,
+.article-meta,
+.writer-subtitle {
+  color: var(--mauve);
+}
+
+.hero-copy h1 em,
+.page-heading h1 em,
+.home-bottom h2 em {
+  color: var(--mauve);
+}
+
+/* Buttons */
+.under-link,
+.solid-button,
+.menu-toggle {
+  background: var(--ink);
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(80, 43, 80, 0.16);
+}
+
+.outline-button,
+.saved-row button {
+  background: var(--blue2);
+  color: var(--ink);
+}
+
+.quiet-button {
+  background: #F0E9EF;
+  color: #654D68;
+}
+
+/* Collection cards */
+.index-list a {
+  background: #EFE6EF;
+  border-color: rgba(80, 43, 80, 0.07);
+}
+
+.index-list a:nth-child(2) {
+  background: #F8E9DF;
+}
+
+.index-list a:nth-child(3) {
+  background: #F0E9EF;
+}
+
+.index-list a:nth-child(4) {
+  background: #F4E8D9;
+}
+
+.index-list a > span {
+  color: var(--ink);
+  background: #FFFCF8;
+}
+
+.index-list b {
+  color: var(--mauve);
+}
+
+.home-bottom > div {
+  background: #F8E9DF;
+}
+
+.home-bottom .home-archive {
+  background: #EFE6EF;
+}
+
+/* Article lists and archive */
+.page-heading::after {
+  background: linear-gradient(90deg, var(--ink), var(--coral));
+}
+
+.entry-row,
+.saved-row {
+  background: var(--white);
+  border-color: var(--line);
+  box-shadow: 0 5px 18px rgba(80, 43, 80, 0.045);
+}
+
+.entry-row:hover {
+  border-color: #C7AEC9;
+  box-shadow: 0 12px 28px rgba(80, 43, 80, 0.09);
+}
+
+.empty-state {
+  background: var(--lav);
+  color: var(--ink);
+}
+
+/* Form fields */
+.archive-controls input,
+.archive-controls select,
+.field input,
+.field select,
+.field textarea {
+  border-color: var(--line);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.field label {
+  color: var(--ink);
+}
+
+.desk-notice {
+  background: #F4E8D9;
+  color: var(--ink);
+}
+
+/* Footer */
+.footer {
+  background: #502B50;
+  color: #FFF8F1;
+}
+
+.footer p {
+  color: #E8D9E7;
+}
+
+.footer div a {
+  color: #FFF8F1;
+}
+
+.footer small {
+  color: #D5C2D5;
+}
+
+/* Refined homepage literary panel */
+.hero-note {
+  min-height: 390px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  border: 1px solid rgba(80, 43, 80, 0.12);
+
+  background:
+    radial-gradient(circle at 90% 8%,
+      rgba(242, 185, 149, 0.52), transparent 46%),
+    linear-gradient(145deg,
+      #FFFCF8 0%, #F1EAF1 72%, #F8E9DF 100%);
+
+  box-shadow: 0 18px 45px rgba(80, 43, 80, 0.08);
+}
+
+.hero-note-top,
+.hero-note-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #756677;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.35px;
+}
+
+.hero-note-mark {
+  color: var(--mauve);
+  font: 800 86px/.8 Georgia, serif;
+  height: 62px;
+  margin-top: 16px;
+}
+
+.hero-note blockquote {
+  margin: 8px 0 20px;
+  max-width: 440px;
+  color: var(--ink);
+  font: 800 clamp(25px, 3vw, 35px)/1.32 var(--heading);
+  letter-spacing: -1.2px;
+}
+
+.hero-note-rule {
+  width: 64px;
+  height: 4px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--ink), var(--coral));
+  margin-bottom: 17px;
+}
+
+.hero-note-description {
+  max-width: 390px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.hero-note-bottom {
+  padding-top: 19px;
+  margin-top: 25px;
+  border-top: 1px solid rgba(80, 43, 80, 0.14);
+  color: var(--ink);
+}
+
+/* Consistent hover effects */
+.main-nav a,
+.index-list a,
+.entry-row,
+.under-link,
+.outline-button,
+.quiet-button,
+.solid-button {
+  transition: color .2s ease, background .2s ease,
+    border-color .2s ease, box-shadow .2s ease,
+    transform .2s ease;
+}
+
+.main-nav a:hover,
+.index-list a:hover,
+.entry-row:hover {
+  transform: translateY(-2px);
+}
+
+/* Keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(150, 116, 155, 0.48);
+  outline-offset: 3px;
+}
+
+/* Mobile appearance */
+@media (max-width: 800px) {
+  .hero-note {
+    min-height: 330px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-note {
+    min-height: 315px;
+    padding: 23px;
+    border-radius: 22px;
+  }
+
+  .hero-note-top,
+  .hero-note-bottom {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
