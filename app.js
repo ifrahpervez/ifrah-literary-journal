@@ -329,12 +329,17 @@ async function setupDesk() {
 
   function fillForm(entry) {
     editingId = entry.id;
-    $('entry-id').value = entry.id;
+    if ($('entry-id')) $('entry-id').value = entry.id;
     ['title', 'section', 'category', 'date', 'intro', 'content', 'reference', 'newspaper', 'tags', 'status']
       .forEach(field => {
-        if ($(field)) $(field).value = entry[field] ?? '';
+        const input = $(field);
+        if (input) input.value = entry[field] == null ? '' : String(entry[field]);
       });
-    $('title').focus();
+    setPrivateControlsVisible(true);
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if ($('title')) $('title').focus({ preventScroll: true });
+    const message = $('cloud-auth-message');
+    if (message) message.textContent = `Loaded “${entry.title || 'Untitled'}” for editing. Make your changes and save again.`;
   }
 
   function drawDeskEntries() {
@@ -499,15 +504,41 @@ async function setupDesk() {
   };
 
   savedList.addEventListener('click', async event => {
-    const editId = event.target.dataset.edit;
-    const deleteId = event.target.dataset.delete;
-    if (!editId && !deleteId) return;
+    const button = event.target.closest('button[data-edit], button[data-delete]');
+    if (!button || !savedList.contains(button)) return;
+
+    const editId = button.getAttribute('data-edit');
+    const deleteId = button.getAttribute('data-delete');
 
     if (client && currentSession) {
       if (editId) {
-        const entry = onlineEntries.find(item => item.id === editId);
-        if (entry) fillForm(entry);
-      } else if (confirm('Permanently delete this article from your online account?')) {
+        let entry = onlineEntries.find(item => String(item.id) === String(editId));
+
+        // If the in-memory list does not contain the row, retrieve it directly.
+        if (!entry) {
+          const { data, error } = await client
+            .from(TABLE_NAME)
+            .select('*')
+            .eq('id', editId)
+            .maybeSingle();
+          if (error) {
+            alert('Could not load this article for editing: ' + error.message);
+            console.error('Edit load error:', error);
+            return;
+          }
+          entry = data;
+        }
+
+        if (!entry) {
+          alert('This article could not be found in your account. Please refresh the page and try again.');
+          return;
+        }
+
+        fillForm(entry);
+        return;
+      }
+
+      if (deleteId && confirm('Permanently delete this article from your online account?')) {
         const { error } = await client.from(TABLE_NAME).delete().eq('id', deleteId);
         if (error) alert('Could not delete the article: ' + error.message);
         else {
@@ -519,10 +550,10 @@ async function setupDesk() {
     }
 
     const items = readEntries();
-    const entry = items.find(item => item.id === (editId || deleteId));
+    const entry = items.find(item => String(item.id) === String(editId || deleteId));
     if (editId && entry) fillForm(entry);
     else if (deleteId && confirm('Delete this entry from this browser?')) {
-      saveEntries(items.filter(item => item.id !== deleteId));
+      saveEntries(items.filter(item => String(item.id) !== String(deleteId)));
       drawLocalEntries();
     }
   });
