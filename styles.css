@@ -23,6 +23,119 @@ main{max-width:1320px;margin:auto;padding:0 5.5%}.home-hero{padding:42px 0 26px}
 .writer-name{font:800 clamp(32px,4vw,46px)/1.12 var(--heading);letter-spacing:-1.8px;color:var(--ink);margin:0 0 9px}
 .writer-subtitle{margin:0;color:var(--blue);font-size:14px;line-height:1.7;font-weight:650;letter-spacing:.1px}
 .prose p{color:#536078;margin:0 0 19px}
+
+/* ===================================
+   IFRAH'S LITERARY JOURNAL
+   Refined Editorial Styling
+=================================== */
+
+/* Soft background depth */
+body {
+    background:
+        radial-gradient(
+            circle at 8% 4%,
+            rgba(234, 240, 255, 0.85),
+            transparent 26rem
+        ),
+        radial-gradient(
+            circle at 94% 20%,
+            rgba(255, 240, 233, 0.75),
+            transparent 24rem
+        ),
+        var(--bg);
+}
+
+/* Smoother navigation */
+.main-nav a {
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.main-nav a:hover {
+    transform: translateY(-2px);
+}
+
+/* Decorative line under page headings */
+.page-heading::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin-top: 22px;
+    border-radius: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--coral)
+    );
+}
+
+/* Refined article cards */
+.entry-row {
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.entry-row:hover {
+    border-color: #d4dcff;
+    box-shadow: 0 12px 28px rgba(24, 35, 61, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Gentle portrait interaction */
+.hero-portrait img {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.hero-portrait:hover img {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 45px rgba(36, 54, 90, 0.16);
+}
+
+/* Button interactions */
+.under-link,
+.outline-button,
+.quiet-button,
+.solid-button {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.under-link:hover,
+.outline-button:hover,
+.quiet-button:hover,
+.solid-button:hover {
+    transform: translateY(-2px);
+}
+
+/* Keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(52, 89, 230, 0.35);
+    outline-offset: 3px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
 .prose .lead{font-size:17px;line-height:1.9;color:#35415a}
 .prose h2{font:800 26px/1.25 var(--heading);margin:30px 0 12px}
 @media(max-width:800px){.about-page{grid-template-columns:220px minmax(0,1fr);gap:28px}.writer-portrait img{height:290px}}
