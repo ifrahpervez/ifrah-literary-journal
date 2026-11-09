@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ifrah Pervez monogram">
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="#3459e6"/>
+  <path d="M13 13h38v38H13z" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="1.5" rx="10"/>
+  <text x="32" y="40" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="23" font-weight="800" letter-spacing="-1.5" fill="#ffffff">IP</text>
+  <circle cx="49" cy="15" r="4" fill="#ff806f"/>
+</svg>
