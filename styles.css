@@ -106,6 +106,18 @@ button { cursor: pointer; }
   transition: background .2s ease, color .2s ease;
 }
 .main-nav a:hover, .main-nav a.current {
+   .main-nav a.writing-desk-link {
+  margin-left: 6px;
+  padding: 8px 14px;
+  background: var(--ink);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.main-nav a.writing-desk-link:hover {
+  background: var(--blue);
+  color: #ffffff;
+}
   background: var(--blue2);
   color: var(--blue);
 }
