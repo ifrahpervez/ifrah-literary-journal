@@ -1,37 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The personal literary journal of Ifrah Pervez, featuring essays, newspaper observations, independent perspectives and ideas.">
+  <meta name="description" content="The personal literary journal of Ifrah Pervez: essays, observations, perspectives and ideas on literature, education, society and public affairs.">
   <meta name="theme-color" content="#f7f8fc">
-
   <title>Ifrah Pervez | Personal Literary Journal</title>
-
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
-
 <body>
-
 <header class="masthead">
   <div class="masthead-top">
     <a class="wordmark" href="index.html">
-      <img src="assets/favicon.svg" alt="" width="38" height="38"
-      style="vertical-align:middle;margin-right:10px;">
-      Ifrah Pervez
-      <span>Personal Literary Journal</span>
+      <img src="assets/favicon.svg" alt="" width="36" height="36">
+      <span class="wordmark-text">Ifrah Pervez<span>Personal Literary Journal</span></span>
     </a>
-
-    <button class="menu-toggle" aria-expanded="false"
-    aria-label="Open navigation">
-      Menu ＋
-    </button>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Open navigation">Menu <i>＋</i></button>
   </div>
-
   <nav class="main-nav">
-    <a href="index.html">The Front Page</a>
+    <a class="current" href="index.html">The Front Page</a>
     <a href="about.html">The Writer</a>
     <a href="essays.html">Essays &amp; Reflections</a>
     <a href="observations.html">The Press Notebook</a>
@@ -44,184 +32,94 @@
 </header>
 
 <main>
-
-  <!-- OPENING SECTION -->
-
   <section class="home-hero">
-
     <div class="hero-kicker">
-      An independent space for writing and reflection
+      <span>AN INDEPENDENT LITERARY JOURNAL</span>
+      <span>READ · REFLECT · EXPLORE</span>
     </div>
-
     <div class="hero-grid">
-
       <div class="hero-copy">
-
         <p class="overline">WELCOME TO THE JOURNAL</p>
-
-        <h1>
-          Where Thoughts<br>
-          <em>Find Their Words.</em>
-        </h1>
-
-        <p class="hero-lede">
-          A personal literary journal exploring literature,
-          education, society and public affairs through
-          essays, observations and independent perspectives.
-        </p>
-
-        <a class="under-link" href="#collection">
-          Explore the collection <b>↗</b>
-        </a>
-
+        <h1>A space for words,<br><em>questions and ideas.</em></h1>
+        <p class="hero-lede">Essays, observations and reflections on literature, education, society and public affairs — gathered in one evolving collection.</p>
+        <a class="under-link" href="#journal-sections">Discover the journal <b>↗</b></a>
       </div>
-
-      <!-- EDITORIAL FEATURE PANEL -->
-
-      <aside class="hero-note">
-
-        <div class="hero-note-top">
-          <span>A NOTE ON WRITING</span>
-          <span>01 / PERSPECTIVE</span>
-        </div>
-
-        <div>
-
-          <div class="hero-note-mark">“</div>
-
-          <blockquote>
-            A thoughtful response
-            begins with a
-            better question.
-          </blockquote>
-
-          <div class="hero-note-rule"></div>
-
-          <p class="hero-note-description">
-            This is a space to examine ideas with care,
-            connect what we read with what we observe,
-            and develop our understanding in our own words.
-          </p>
-
-        </div>
-
-        <div class="hero-note-bottom">
-          <span>READ WITH CURIOSITY</span>
-          <span>WRITE WITH CLARITY</span>
-        </div>
-
-      </aside>
-
+      <figure class="hero-visual">
+        <img src="assets/hero-literary-stilllife.webp" alt="A quiet reading desk with books, a fountain pen and flowers">
+        <figcaption>A personal space for reading, inquiry and considered writing.</figcaption>
+      </figure>
     </div>
-
-    <!-- SUBJECTS COVERED -->
-
     <div class="hero-foot">
       <span>Literature &amp; Language</span>
       <span>Education &amp; Society</span>
-      <span>Current Affairs &amp; Ideas</span>
+      <span>Public Affairs &amp; Ideas</span>
     </div>
-
   </section>
 
-
-  <!-- WRITING COLLECTION -->
-
-  <section class="home-index" id="collection">
-
+  <section class="home-index" id="journal-sections">
     <div class="section-label">
       <span>Explore the Journal</span>
-      <span>FOUR WRITING SECTIONS</span>
+      <span>FOUR WRITING COLLECTIONS</span>
     </div>
-
-    <div class="index-list">
-
-      <a href="essays.html">
-        <span>01</span>
-        <strong>Essays &amp; Reflections</strong>
-        <i>Developed arguments on literature, education and society.</i>
-        <b>↗</b>
+    <div class="journal-grid">
+      <a class="journal-card" href="essays.html">
+        <div class="journal-card-image"><img src="assets/section-essays.webp" alt="An open book on a reading desk"></div>
+        <div class="journal-card-body">
+          <p class="journal-card-label">01 · LONG-FORM WRITING</p>
+          <h2>Essays &amp; Reflections</h2>
+          <p>Developed writing on literature, education, society and public questions.</p>
+          <span class="journal-card-more">View collection ↗</span>
+        </div>
       </a>
-
-      <a href="observations.html">
-        <span>02</span>
-        <strong>The Press Notebook</strong>
-        <i>Observations and analysis inspired by newspapers and public debate.</i>
-        <b>↗</b>
+      <a class="journal-card" href="observations.html">
+        <div class="journal-card-image"><img src="assets/section-press-notebook.webp" alt="A newspaper and reading glasses on a desk"></div>
+        <div class="journal-card-body">
+          <p class="journal-card-label">02 · EDITORIAL NOTES</p>
+          <h2>The Press Notebook</h2>
+          <p>Observations prompted by newspaper editorials, reporting and current affairs.</p>
+          <span class="journal-card-more">View collection ↗</span>
+        </div>
       </a>
-
-      <a href="opinions.html">
-        <span>03</span>
-        <strong>Perspectives</strong>
-        <i>Independent views on contemporary issues and questions that matter.</i>
-        <b>↗</b>
+      <a class="journal-card" href="opinions.html">
+        <div class="journal-card-image"><img src="assets/section-perspectives.webp" alt="A notebook and fountain pen ready for writing"></div>
+        <div class="journal-card-body">
+          <p class="journal-card-label">03 · INDEPENDENT VIEWS</p>
+          <h2>Perspectives</h2>
+          <p>Considered opinions on social, political, institutional and cultural issues.</p>
+          <span class="journal-card-more">View collection ↗</span>
+        </div>
       </a>
-
-      <a href="ideas.html">
-        <span>04</span>
-        <strong>The Idea Atelier</strong>
-        <i>Emerging thoughts, interesting concepts and ideas worth developing.</i>
-        <b>↗</b>
+      <a class="journal-card" href="ideas.html">
+        <div class="journal-card-image"><img src="assets/section-ideas.webp" alt="Books and flowers on a quiet writing desk"></div>
+        <div class="journal-card-body">
+          <p class="journal-card-label">04 · NOTES &amp; QUESTIONS</p>
+          <h2>The Idea Atelier</h2>
+          <p>An open notebook for early thoughts, concepts and questions worth developing.</p>
+          <span class="journal-card-more">View collection ↗</span>
+        </div>
       </a>
-
     </div>
-
   </section>
-
-
-  <!-- PUBLICATIONS AND ARCHIVE -->
 
   <section class="home-bottom">
-
     <div>
-      <p class="overline">NEWSPAPER PUBLICATIONS</p>
-
+      <p class="overline">NEWSPAPER CONTRIBUTIONS</p>
       <h2>In Print</h2>
-
-      <p>
-        A record of published letters and contributions,
-        with links to their original newspaper publications.
-      </p>
-
-      <a class="under-link" href="published.html">
-        Read published letters <b>↗</b>
-      </a>
+      <p>A record of letters and contributions published in newspapers, with links to their original pages.</p>
+      <a class="under-link" href="published.html">View publications <b>↗</b></a>
     </div>
-
     <div class="home-archive">
-
-      <p class="overline">THE WRITING COLLECTION</p>
-
-      <h2>The Complete Archive</h2>
-
-      <p>
-        Browse the full collection of published work
-        and discover writing across subjects, sections and dates.
-      </p>
-
-      <a class="under-link" href="archive.html">
-        Browse the archive <b>↗</b>
-      </a>
-
+      <p class="overline">THE COMPLETE COLLECTION</p>
+      <h2>Writing Archive</h2>
+      <p>Browse the journal's writing by section, subject, title or date.</p>
+      <a class="under-link" href="archive.html">Browse the archive <b>↗</b></a>
     </div>
-
   </section>
-
 </main>
 
-
-<!-- FOOTER -->
-
 <footer class="footer">
-
-  <a class="footer-name" href="index.html">
-    <img src="assets/favicon.svg" alt="" width="30" height="30"
-    style="vertical-align:middle;margin-right:9px;">
-    Ifrah Pervez
-  </a>
-
-  <p>Essays, observations and ideas by Ifrah Pervez.</p>
-
+  <a class="footer-name" href="index.html"><img src="assets/favicon.svg" alt="" width="26" height="26"> Ifrah Pervez</a>
+  <p>Personal Literary Journal · Essays, observations and ideas.</p>
   <div>
     <a href="about.html">The Writer</a>
     <a href="published.html">In Print</a>
@@ -229,12 +127,8 @@
     <a href="correspondence.html">Correspondence</a>
     <a href="writing-desk.html">Private Writing Desk</a>
   </div>
-
   <small>© 2026 Ifrah Pervez. All rights reserved.</small>
-
 </footer>
-
 <script src="app.js"></script>
-
 </body>
 </html>
