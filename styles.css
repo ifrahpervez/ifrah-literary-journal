@@ -635,3 +635,29 @@ select:focus-visible, textarea:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Writing Studio — live writing metrics */
+
+.writing-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  margin-top: 12px;
+  padding: 13px 16px;
+  background: rgba(220, 216, 239, 0.22);
+  border: 1px solid rgba(120, 105, 160, 0.18);
+  border-radius: 8px;
+  color: #55516a;
+  font-size: 0.85rem;
+}
+
+.writing-metrics span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.writing-metrics strong {
+  color: #39334f;
+  font-weight: 700;
+}
