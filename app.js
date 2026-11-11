@@ -231,6 +231,29 @@ async function setupDesk() {
   if (!form) return;
 
   const $ = id => document.getElementById(id);
+  
+function updateWritingMetrics() {
+  const content = $('content').value;
+  const trimmedContent = content.trim();
+
+  const words = trimmedContent
+    ? trimmedContent.split(/\s+/).length
+    : 0;
+
+  const characters = content.length;
+  const readingMinutes = words
+    ? Math.ceil(words / 200)
+    : 0;
+
+  $('word-count').textContent = words;
+  $('character-count').textContent = characters;
+  $('reading-time').textContent = readingMinutes + ' min';
+}
+
+$('content').addEventListener('input', updateWritingMetrics);
+
+updateWritingMetrics();
+
   const notice = document.querySelector('.desk-notice');
   const savedList = $('saved-list');
   let editingId = null;
