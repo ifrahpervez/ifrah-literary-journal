@@ -342,14 +342,59 @@ async function setupDesk() {
     if (message) message.textContent = `Loaded “${entry.title || 'Untitled'}” for editing. Make your changes and save again.`;
   }
 
-  function drawDeskEntries() {
-    const items = onlineEntries.slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-    savedList.innerHTML = items.length ? items.map(entry => `
-      <div class="saved-row">
-        <div><strong>${esc(entry.title || 'Untitled')}</strong><small>${esc(entry.section || 'Writing')} · ${esc(entry.status === 'published' ? 'Published online' : 'Private draft')}</small></div>
-        <div><button type="button" data-edit="${esc(entry.id)}">Edit</button><button type="button" data-delete="${esc(entry.id)}">Delete</button></div>
-      </div>`).join('') : '<p class="small-note">No saved writing yet. Start with a draft above.</p>';
+ 
+function drawDeskEntries() {
+  const items = onlineEntries.slice().sort(
+    (a, b) => (b.date || '').localeCompare(a.date || '')
+  );
+
+  // Calculate dashboard statistics
+  const totalArticles = items.length;
+  const publishedItems = items.filter(
+    entry => entry.status === 'published'
+  );
+  const draftItems = items.filter(
+    entry => entry.status !== 'published'
+  );
+
+  // Update the statistics cards
+  const totalElement = document.getElementById('total-articles');
+  const draftsElement = document.getElementById('total-drafts');
+  const publishedElement = document.getElementById('total-published');
+
+  if (totalElement) totalElement.textContent = totalArticles;
+  if (draftsElement) draftsElement.textContent = draftItems.length;
+  if (publishedElement) publishedElement.textContent = publishedItems.length;
+
+  // Display recent writing activity
+  const recentActivity = document.getElementById('recent-activity');
+
+  if (recentActivity) {
+    if (items.length) {
+      const latest = items[0];
+      recentActivity.textContent =
+        `${latest.title || 'Untitled'} — ${latest.section || 'Writing'} (${latest.status === 'published' ? 'Published' : 'Draft'})`;
+    } else {
+      recentActivity.textContent = 'No writing activity yet. Start with your first article.';
+    }
   }
+
+  // Display saved articles with existing Edit and Delete buttons
+  savedList.innerHTML = items.length
+    ? items.map(entry => `
+      <div class="saved-row">
+        <div>
+          <strong>${esc(entry.title || 'Untitled')}</strong>
+          <small>${esc(entry.section || 'Writing')} · ${esc(entry.status === 'published' ? 'Published online' : 'Private draft')}</small>
+        </div>
+        <div>
+          <button type="button" data-edit="${esc(entry.id)}">Edit</button>
+          <button type="button" data-delete="${esc(entry.id)}">Delete</button>
+        </div>
+      </div>
+    `).join('')
+    : '<p class="small-note">No saved writing yet. Start with a draft above.</p>';
+}
 
   async function loadDeskEntries() {
     if (!client || !currentSession) return;
