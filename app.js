@@ -231,29 +231,6 @@ async function setupDesk() {
   if (!form) return;
 
   const $ = id => document.getElementById(id);
-  
-function updateWritingMetrics() {
-  const content = $('content').value;
-  const trimmedContent = content.trim();
-
-  const words = trimmedContent
-    ? trimmedContent.split(/\s+/).length
-    : 0;
-
-  const characters = content.length;
-  const readingMinutes = words
-    ? Math.ceil(words / 200)
-    : 0;
-
-  $('word-count').textContent = words;
-  $('character-count').textContent = characters;
-  $('reading-time').textContent = readingMinutes + ' min';
-}
-
-$('content').addEventListener('input', updateWritingMetrics);
-
-updateWritingMetrics();
-
   const notice = document.querySelector('.desk-notice');
   const savedList = $('saved-list');
   let editingId = null;
@@ -365,113 +342,15 @@ updateWritingMetrics();
     if (message) message.textContent = `Loaded “${entry.title || 'Untitled'}” for editing. Make your changes and save again.`;
   }
 
- 
-
-function drawDeskEntries() {
-  const items = onlineEntries.slice().sort(
-    (a, b) => (b.date || '').localeCompare(a.date || '')
-  );
-
-  // Dashboard statistics
-  const totalElement = document.getElementById('total-articles');
-  const draftsElement = document.getElementById('total-drafts');
-  const publishedElement = document.getElementById('total-published');
-
-  const publishedItems = items.filter(
-    entry => entry.status === 'published'
-  );
-  const draftItems = items.filter(
-    entry => entry.status !== 'published'
-  );
-
-  if (totalElement) totalElement.textContent = items.length;
-  if (draftsElement) draftsElement.textContent = draftItems.length;
-  if (publishedElement) publishedElement.textContent = publishedItems.length;
-
-  // Recent activity
-  const recentActivity = document.getElementById('recent-activity');
-
-  if (recentActivity) {
-    recentActivity.textContent = items.length
-      ? `${items[0].title || 'Untitled'} — ${items[0].section || 'Writing'} (${items[0].status === 'published' ? 'Published' : 'Draft'})`
-      : 'No writing activity yet. Start with your first article.';
+  function drawDeskEntries() {
+    const items = onlineEntries.slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    savedList.innerHTML = items.length ? items.map(entry => `
+      <div class="saved-row">
+        <div><strong>${esc(entry.title || 'Untitled')}</strong><small>${esc(entry.section || 'Writing')} · ${esc(entry.status === 'published' ? 'Published online' : 'Private draft')}</small></div>
+        <div><button type="button" data-edit="${esc(entry.id)}">Edit</button><button type="button" data-delete="${esc(entry.id)}">Delete</button></div>
+      </div>`).join('') : '<p class="small-note">No saved writing yet. Start with a draft above.</p>';
   }
 
-  // Search and filter
-  const searchInput = document.getElementById('article-search');
-  const filterInput = document.getElementById('article-filter');
-
-  const searchTerm = searchInput
-    ? searchInput.value.trim().toLowerCase()
-    : '';
-
-  const selectedFilter = filterInput
-    ? filterInput.value
-    : 'all';
-
-  const filteredItems = items.filter(entry => {
-    const searchableText = [
-      entry.title,
-      entry.section,
-      entry.category,
-      entry.tags
-    ].join(' ').toLowerCase();
-
-    const matchesSearch = searchableText.includes(searchTerm);
-
-    const matchesFilter =
-      selectedFilter === 'all' ||
-      (selectedFilter === 'published' && entry.status === 'published') ||
-      (selectedFilter === 'draft' && entry.status !== 'published');
-
-    return matchesSearch && matchesFilter;
-  });
-
-  // Display matching articles
-  savedList.innerHTML = filteredItems.length
-    ? filteredItems.map(entry => `
-      <div class="saved-row">
-        <div>
-          <strong>${esc(entry.title || 'Untitled')}</strong>
-          <small>${esc(entry.section || 'Writing')} · ${esc(entry.status === 'published' ? 'Published online' : 'Private draft')}</small>
-        </div>
-        <div>
-          <button type="button" data-edit="${esc(entry.id)}">Edit</button>
-          <button type="button" data-delete="${esc(entry.id)}">Delete</button>
-        </div>
-      </div>
-    `).join('')
-    : '<p class="small-note">No matching articles found.</p>';
-}
-
-
-  // Display saved articles with existing Edit and Delete buttons
-  savedList.innerHTML = items.length
-    ? items.map(entry => `
-      <div class="saved-row">
-        <div>
-          <strong>${esc(entry.title || 'Untitled')}</strong>
-          <small>${esc(entry.section || 'Writing')} · ${esc(entry.status === 'published' ? 'Published online' : 'Private draft')}</small>
-        </div>
-        <div>
-          <button type="button" data-edit="${esc(entry.id)}">Edit</button>
-          <button type="button" data-delete="${esc(entry.id)}">Delete</button>
-        </div>
-      </div>
-    `).join('')
-    : '<p class="small-note">No saved writing yet. Start with a draft above.</p>';
-}
-// Activate My Articles search and filters
-const articleSearch = $('article-search');
-const articleFilter = $('article-filter');
-
-if (articleSearch) {
-  articleSearch.addEventListener('input', drawDeskEntries);
-}
-
-if (articleFilter) {
-  articleFilter.addEventListener('change', drawDeskEntries);
-}
   async function loadDeskEntries() {
     if (!client || !currentSession) return;
     const { data, error } = await client.from(TABLE_NAME).select('*').order('date', { ascending: false, nullsFirst: false });
