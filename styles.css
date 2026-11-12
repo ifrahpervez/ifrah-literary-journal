@@ -1895,12 +1895,12 @@ body:has(.article-reading-page) .lumora-copyright {
   padding-right: 0;
 }
 
-
 /* =====================================
    LUMORA — THE PRESS NOTEBOOK
+   Styling matched to Essays & Reflections
 ===================================== */
 
-body.press-notebook-page {
+body:has(.press-notebook-page) {
   margin: 0;
   background: #f4f0e8;
   color: #49352d;
@@ -1908,109 +1908,98 @@ body.press-notebook-page {
 
 /* HEADER */
 
-body.press-notebook-page .lumora-header {
+body:has(.press-notebook-page) .lumora-header {
   position: relative;
   z-index: 20;
-  display: block;
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 28px 5.5%;
-  box-sizing: border-box;
-  background: #28231f;
-}
-
-body.press-notebook-page .masthead-top {
+  padding: 22px 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  margin: 0;
+  box-sizing: border-box;
+  background: #49352d;
 }
 
-/* BRAND */
-
-body.press-notebook-page .lumora-brand {
+body:has(.press-notebook-page) .lumora-brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: #f8f1e7;
+  color: #f4f0e8;
   text-decoration: none;
 }
 
-body.press-notebook-page .lumora-brand img {
-  display: block;
-  width: 38px;
-  height: 38px;
+body:has(.press-notebook-page) .lumora-brand img {
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
-body.press-notebook-page .lumora-brand strong {
+body:has(.press-notebook-page) .lumora-brand strong {
   display: block;
-  color: #f8f1e7;
+  color: #f4f0e8;
   font: 600 22px/1.1 var(--ui);
   letter-spacing: 2px;
 }
 
-body.press-notebook-page .lumora-brand small {
+body:has(.press-notebook-page) .lumora-brand small {
   display: block;
   margin-top: 5px;
-  color: #d1bfa9;
+  color: #e2cfc0;
   font: 500 9px/1.3 var(--body);
   letter-spacing: 1.7px;
 }
 
-/* MENU — ALWAYS ON THE RIGHT */
+/* MENU BUTTON */
 
-body.press-notebook-page .lumora-menu-toggle {
+body:has(.press-notebook-page) .lumora-menu-toggle {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 13px;
-  margin-left: auto;
-  padding: 10px 0 10px 15px;
+  padding: 10px 0;
   border: 0;
+  border-radius: 0;
   background: transparent;
-  color: #f8f1e7;
+  color: #f4f0e8;
   font: 600 10px var(--ui);
   letter-spacing: 1.5px;
-  cursor: pointer;
 }
 
-body.press-notebook-page .hamburger-lines {
+body:has(.press-notebook-page) .hamburger-lines {
   display: flex;
   flex-direction: column;
   gap: 6px;
   width: 25px;
 }
 
-body.press-notebook-page .hamburger-lines span {
+body:has(.press-notebook-page) .hamburger-lines span {
   display: block;
   width: 25px;
   height: 1px;
-  background: #f8f1e7;
-  transition: transform .25s ease, opacity .25s ease;
+  background: #f4f0e8;
+  transition: transform .25s ease;
 }
 
-body.press-notebook-page .lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:first-child {
+body:has(.press-notebook-page) .lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:first-child {
   transform: translateY(7px) rotate(45deg);
 }
 
-body.press-notebook-page .lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:nth-child(2) {
+body:has(.press-notebook-page) .lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:nth-child(2) {
   opacity: 0;
 }
 
-body.press-notebook-page .lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:last-child {
+body:has(.press-notebook-page) .lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:last-child {
   transform: translateY(-7px) rotate(-45deg);
 }
 
 /* DROPDOWN NAVIGATION */
 
-body.press-notebook-page .lumora-nav {
+body:has(.press-notebook-page) .lumora-nav {
   display: none;
   position: absolute;
   top: 88px;
-  right: 5.5%;
+  right: 6%;
   z-index: 30;
   width: min(340px, 88vw);
   padding: 18px;
@@ -2021,156 +2010,149 @@ body.press-notebook-page .lumora-nav {
   gap: 3px;
 }
 
-body.press-notebook-page .lumora-nav.open {
+body:has(.press-notebook-page) .lumora-nav.open {
   display: flex;
 }
 
-body.press-notebook-page .lumora-nav a {
+body:has(.press-notebook-page) .lumora-nav a {
   display: block;
   padding: 12px 10px;
   color: #f4eadc;
   font: 500 13px var(--body);
-  text-decoration: none;
 }
 
-body.press-notebook-page .lumora-nav a:hover,
-body.press-notebook-page .lumora-nav a.current {
+body:has(.press-notebook-page) .lumora-nav a:hover,
+body:has(.press-notebook-page) .lumora-nav a.current {
   background: rgba(255,255,255,.09);
   color: #fff;
 }
 
-/* MAIN PAGE */
+/* PAGE HEADING */
 
-body.press-notebook-page .press-main {
-  width: 100%;
+.press-notebook-page {
   min-height: 75vh;
-  padding: 0 8% 90px;
-  box-sizing: border-box;
-  background: #f4f0e8;
-}
-
-/* INTRODUCTION */
-
-body.press-notebook-page .press-intro {
-  max-width: 900px;
-  margin: 0;
-  padding: 75px 0 65px;
-  text-align: left;
-}
-
-body.press-notebook-page .press-overline {
-  margin: 0 0 22px;
-  color: #987568;
-  font: 600 10px/1.6 var(--ui);
-  letter-spacing: 2px;
-}
-
-body.press-notebook-page .press-intro h1 {
-  margin: 0 0 24px;
   color: #49352d;
-  font: 500 clamp(40px, 5.5vw, 64px)/1.15 var(--heading);
-  text-align: left;
 }
 
-body.press-notebook-page .press-intro h1 em {
+.press-notebook-page .page-heading {
+  max-width: 900px;
+  padding: 65px 0 35px;
+}
+
+.press-notebook-page .overline {
   color: #987568;
-  font-weight: 400;
+  font: 600 10px/1.5 var(--ui);
+  letter-spacing: 2.5px;
 }
 
-body.press-notebook-page .press-description {
+.press-notebook-page .page-heading h1 {
+  color: #49352d;
+  font: 500 clamp(42px, 5vw, 60px)/1.12 var(--heading);
+  letter-spacing: 0;
+}
+
+.press-notebook-page .page-heading h1 em {
+  color: #987568;
+  font-style: italic;
+}
+
+.press-notebook-page .page-heading::after {
+  width: 48px;
+  height: 1px;
+  border-radius: 0;
+  background: #987568;
+}
+
+.press-notebook-page .heading-note {
   max-width: 700px;
-  margin: 0;
   color: #79665b;
-  font: 400 17px/1.9 var(--body);
-  text-align: left;
+  font: 400 15px/1.85 var(--body);
 }
 
 /* COLLECTION */
 
-body.press-notebook-page .press-collection {
-  width: 100%;
-  max-width: 1050px;
-  margin: 0;
-  padding: 35px 0 20px;
-  border-top: 1px solid #d8cbbd;
+.press-notebook-page .page-content {
+  padding: 20px 0 75px;
 }
 
-body.press-notebook-page .press-section-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 30px;
+.press-notebook-page .section-label {
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #d8c9bd;
 }
 
-body.press-notebook-page .press-section-heading h2 {
-  margin: 0;
+.press-notebook-page .section-label span:first-child {
   color: #49352d;
-  font: 500 27px/1.3 var(--heading);
+  font: 500 29px/1.2 var(--heading);
 }
 
-body.press-notebook-page .press-section-heading span {
+.press-notebook-page .section-label span:last-child {
   color: #987568;
-  font: 400 11px/1.6 var(--body);
+  font-size: 10px;
 }
 
-/* ENTRIES */
-
-body.press-notebook-page .entry-list {
-  width: 100%;
-  text-align: left;
+.press-notebook-page .entry-list {
+  display: grid;
+  gap: 0;
 }
 
-body.press-notebook-page .entry-row {
-  padding: 25px 0;
-  border-bottom: 1px solid #ded3c7;
-  text-align: left;
+.press-notebook-page .entry-row {
+  grid-template-columns: 145px minmax(0, 1fr) auto;
+  gap: 22px;
+  padding: 23px 5px;
+  border: 0;
+  border-bottom: 1px solid #d8c9bd;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-body.press-notebook-page .entry-kind,
-body.press-notebook-page .entry-date {
+.press-notebook-page .entry-row:hover {
+  border-color: #b99b8b;
+  box-shadow: none;
+}
+
+.press-notebook-page .entry-kind {
   color: #987568;
-  font: 500 10px/1.6 var(--ui);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  font: 600 9px/1.6 var(--ui);
+  letter-spacing: 1.2px;
 }
 
-body.press-notebook-page .entry-row h2 {
-  margin: 10px 0;
+.press-notebook-page .entry-row h2 {
+  margin: 0 0 7px;
   color: #49352d;
-  font: 500 27px/1.35 var(--heading);
-  text-align: left;
+  font: 500 25px/1.2 var(--heading);
 }
 
-body.press-notebook-page .entry-row p {
-  max-width: 780px;
-  margin: 0;
+.press-notebook-page .entry-row h2 a:hover {
+  color: #987568;
+}
+
+.press-notebook-page .entry-row p {
+  max-width: 680px;
   color: #79665b;
-  font: 400 16px/1.8 var(--body);
-  text-align: left;
+  font: 400 14px/1.8 var(--body);
 }
 
-body.press-notebook-page .entry-row a {
-  color: #49352d;
-  text-decoration: none;
-}
-
-body.press-notebook-page .entry-row a:hover {
+.press-notebook-page .entry-date {
   color: #987568;
+  font: 400 11px var(--body);
 }
 
-body.press-notebook-page .empty-state {
+.press-notebook-page .empty-state {
   padding: 25px 0;
+  border: 0;
+  border-bottom: 1px solid #d8c9bd;
+  border-radius: 0;
+  background: transparent;
   color: #79665b;
-  font: 400 15px/1.8 var(--body);
-  text-align: left;
+  font: 400 14px/1.8 var(--body);
 }
 
 /* FOOTER */
 
-body.press-notebook-page .lumora-copyright {
-  margin: 0;
+.press-notebook-page ~ .lumora-copyright {
+  margin-top: 0;
   padding: 18px 20px;
   background: #49352d;
   color: #e2cfc0;
@@ -2182,45 +2164,40 @@ body.press-notebook-page .lumora-copyright {
 /* MOBILE */
 
 @media (max-width: 700px) {
-  body.press-notebook-page .lumora-header {
-    padding: 22px 6%;
+  body:has(.press-notebook-page) .lumora-header {
+    padding: 17px 6%;
   }
 
-  body.press-notebook-page .lumora-brand img {
-    width: 36px;
-    height: 36px;
+  body:has(.press-notebook-page) .lumora-brand img {
+    width: 34px;
+    height: 34px;
   }
 
-  body.press-notebook-page .lumora-brand strong {
+  body:has(.press-notebook-page) .lumora-brand strong {
     font-size: 19px;
   }
 
-  body.press-notebook-page .lumora-nav {
+  body:has(.press-notebook-page) .lumora-nav {
     top: 78px;
-    right: 6%;
   }
 
-  body.press-notebook-page .press-main {
-    padding: 0 6% 60px;
+  .press-notebook-page .page-heading {
+    padding: 48px 0 30px;
   }
 
-  body.press-notebook-page .press-intro {
-    padding: 55px 0 45px;
+  .press-notebook-page .entry-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 20px 2px;
   }
 
-  body.press-notebook-page .press-intro h1 {
-    font-size: clamp(38px, 9vw, 48px);
+  .press-notebook-page .entry-date {
+    padding-top: 3px;
   }
 
-  body.press-notebook-page .press-description {
-    font-size: 16px;
-  }
-
-  body.press-notebook-page .press-section-heading h2 {
-    font-size: 24px;
-  }
-
-  body.press-notebook-page .entry-row h2 {
-    font-size: 24px;
+  .press-notebook-page .section-label span:first-child {
+    font-size: 25px;
   }
 }
+
+
