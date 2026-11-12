@@ -408,12 +408,41 @@ main {
 .writer-portrait img { position: relative; width: 100%; height: 300px; object-fit: cover; object-position: center 22%; border-radius: 12px; }
 .writer-portrait figcaption { position: relative; padding: 9px 3px 0; color: var(--muted); font: 700 9px var(--ui); letter-spacing: 1px; }
 .prose { max-width: 730px; }
-.writer-identity { padding: 0 0 16px; margin: 0 0 18px; border-bottom: 1px solid var(--line); }
-.writer-name { margin: 0 0 5px; color: var(--ink); font: 700 34px/1.1 var(--heading); }
-.writer-subtitle { margin: 0; color: var(--blue); font-size: 11px; line-height: 1.6; font-weight: 600; }
-.prose p { margin: 0 0 14px; color: var(--ink-soft); font-size: 13px; line-height: 1.85; }
-.prose .lead { font-size: 14px; line-height: 1.8; }
-.prose h2 { margin: 22px 0 8px; color: var(--ink); font: 700 24px/1.15 var(--heading); }
+
+.writer-identity {
+  padding: 0 0 18px;
+  margin: 0 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.writer-name {
+  margin: 0 0 7px;
+  color: var(--ink);
+  font: 600 38px/1.15 var(--heading);
+}
+
+.writer-subtitle {
+  margin: 0;
+  color: var(--blue);
+  font: 500 13px/1.7 var(--body);
+}
+
+.prose p {
+  margin: 0 0 17px;
+  color: var(--ink-soft);
+  font: 400 15px/1.9 var(--body);
+}
+
+.prose .lead {
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.prose h2 {
+  margin: 28px 0 12px;
+  color: var(--ink);
+  font: 600 28px/1.25 var(--heading);
+}
 
 /* PUBLISHED LETTERS */
 .published-page { display: grid; gap: 12px; }
