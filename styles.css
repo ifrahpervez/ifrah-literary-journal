@@ -2200,4 +2200,59 @@ body:has(.press-notebook-page) .lumora-nav a.current {
   }
 }
 
+/* ARCHIVE — MATCH ESSAYS & REFLECTIONS */
+
+.archive-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0 30px;
+}
+
+.archive-tools input,
+.archive-tools select {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #d8c9bd;
+  border-radius: 0;
+  background: #f4f0e8;
+  color: #49352d;
+  font-family: var(--body);
+  font-size: 13px;
+  box-shadow: none;
+  outline: none;
+}
+
+.archive-tools input {
+  flex: 1 1 240px;
+}
+
+.archive-tools select {
+  flex: 0 1 165px;
+}
+
+.archive-tools input::placeholder {
+  color: #987568;
+  opacity: 1;
+}
+
+.archive-tools input:focus,
+.archive-tools select:focus {
+  border-color: #987568;
+  outline: none;
+  box-shadow: none;
+}
+
+@media (max-width: 700px) {
+  .archive-tools {
+    flex-direction: column;
+  }
+
+  .archive-tools input,
+  .archive-tools select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 
