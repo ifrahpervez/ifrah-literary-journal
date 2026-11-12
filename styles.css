@@ -231,7 +231,7 @@ main {
 }
 
 /* IMAGE-LED JOURNAL CATEGORY CARDS */
-.home-index { padding: 28px 0 38px; }
+.home-index { padding: 14px 0 38px; }
 .section-label { margin-bottom: 13px; }
 .section-label span:first-child {
   color: var(--ink);
