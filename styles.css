@@ -95,8 +95,9 @@ button { cursor: pointer; }
 .main-nav {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 4px 8px;
   padding: 9px 0 13px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
