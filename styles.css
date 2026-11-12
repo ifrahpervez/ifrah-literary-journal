@@ -1881,3 +1881,16 @@ body:has(.article-reading-page) .lumora-copyright {
     line-height: 1.85;
   }
 }
+
+/* FIX — MAIN ARTICLE TEXT ALIGNMENT */
+
+.article-reading-page .lumora-article .article-body,
+.article-reading-page .lumora-article .article-body p {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left !important;
+  text-indent: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
