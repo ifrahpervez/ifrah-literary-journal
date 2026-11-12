@@ -920,98 +920,122 @@ body.lumora-home {
   }
 }
 
-/* LUMORA — THE WRITER PAGE */
 
-.writer-page {
-  background: #EAE1D6;
-  color: #49352D;
-  min-height: 100vh;
-  padding: 75px 8% 100px;
+/* =====================================
+   LUMORA — THE WRITER PAGE
+   ===================================== */
+
+body:has(.writer-page) {
+  background: #f4f0e8;
+  color: #49352d;
 }
 
+.writer-page {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 7% 90px;
+  background: #f4f0e8;
+  color: #49352d;
+}
+
+/* Opening heading */
+
 .writer-heading {
-  max-width: 850px;
-  margin: 0 auto 65px;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 90px 20px 65px;
   text-align: center;
+  border-bottom: 1px solid #d8c9bd;
 }
 
 .writer-overline {
-  color: #A8897B;
+  margin: 0 0 20px;
+  color: #9a7567;
   font: 600 10px/1.5 var(--ui);
   letter-spacing: 3px;
-  margin-bottom: 22px;
+  text-transform: uppercase;
 }
 
 .writer-heading h1 {
-  font: 400 clamp(48px, 7vw, 82px)/1.05 var(--serif);
-  color: #49352D;
   margin: 0;
+  color: #49352d;
+  font: 400 clamp(48px, 7vw, 78px)/1.1 var(--serif);
 }
 
 .writer-heading h1 em {
-  color: #A8897B;
+  color: #a8897b;
   font-weight: 400;
 }
 
 .writer-intro-line {
-  color: #79665B;
+  max-width: 540px;
+  margin: 20px auto 0;
+  color: #79665b;
   font: 400 15px/1.8 var(--body);
-  margin-top: 22px;
 }
 
+/* Main editorial layout */
+
 .writer-feature {
-  max-width: 1120px;
-  margin: 0 auto;
+  max-width: 1080px;
+  margin: 65px auto 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(190px, 0.65fr);
+  grid-template-columns: minmax(0, 1fr) 250px;
   gap: 75px;
   align-items: start;
 }
 
 .writer-content {
+  min-width: 0;
   max-width: 700px;
 }
 
 .writer-identity {
-  border-bottom: 1px solid #CDBCB0;
   padding-bottom: 25px;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d8c9bd;
 }
 
 .writer-name {
-  font: 400 27px/1.3 var(--serif);
   margin: 0 0 12px;
+  color: #49352d;
+  font: 400 28px/1.3 var(--serif);
 }
 
 .writer-academics p {
-  color: #79665B;
-  font: 500 12px/1.9 var(--ui);
-  letter-spacing: 0.3px;
-  margin: 0;
+  margin: 3px 0;
+  color: #79665b;
+  font: 500 12px/1.8 var(--ui);
+  letter-spacing: .2px;
 }
 
+/* Original writing */
+
 .writer-content > p {
-  font: 400 16px/1.95 var(--body);
-  color: #5B4940;
-  margin: 0 0 24px;
+  margin: 0 0 23px;
+  color: #5b4940;
+  font: 400 16px/1.9 var(--body);
 }
 
 .writer-content > p.lead {
-  font-size: 19px;
+  color: #49352d;
+  font-size: 18px;
   line-height: 1.85;
-  color: #49352D;
 }
 
 .writer-content h2 {
-  font: 400 31px/1.3 var(--serif);
-  color: #49352D;
-  margin: 55px 0 22px;
+  margin: 48px 0 20px;
+  color: #49352d;
+  font: 400 32px/1.3 var(--serif);
 }
 
+/* Subtle portrait */
+
 .writer-portrait {
-  margin: 55px 0 0;
-  max-width: 280px;
-  justify-self: end;
+  width: 100%;
+  max-width: 250px;
+  margin: 35px 0 0;
 }
 
 .writer-portrait img {
@@ -1019,38 +1043,44 @@ body.lumora-home {
   width: 100%;
   height: auto;
   object-fit: cover;
-  filter: saturate(0.85);
 }
 
 .writer-portrait figcaption {
-  color: #A8897B;
+  margin-top: 12px;
+  color: #9a7567;
   font: 500 9px/1.5 var(--ui);
   letter-spacing: 2px;
-  margin-top: 13px;
   text-align: right;
 }
 
-@media (max-width: 700px) {
+/* Responsive layout */
+
+@media (max-width: 760px) {
   .writer-page {
-    padding: 55px 7% 75px;
+    padding: 0 6% 65px;
   }
 
   .writer-heading {
-    margin-bottom: 45px;
+    padding: 65px 10px 45px;
   }
 
   .writer-feature {
     grid-template-columns: 1fr;
     gap: 30px;
+    margin-top: 40px;
+  }
+
+  .writer-content {
+    max-width: none;
   }
 
   .writer-portrait {
-    max-width: 220px;
+    max-width: 210px;
     margin: 10px auto 0;
-    justify-self: center;
   }
 
   .writer-content > p.lead {
     font-size: 17px;
   }
 }
+
