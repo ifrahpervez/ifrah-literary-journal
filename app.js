@@ -185,6 +185,7 @@ async function setupArchive() {
   update();
 }
 
+
 async function setupArticle() {
   const root = document.getElementById('article-content');
   if (!root) return;
@@ -197,20 +198,40 @@ async function setupArticle() {
     return;
   }
 
-  document.title = `${entry.title || 'Article'} — Ifrah Pervez`;
+  document.title = `${entry.title || 'Article'} — LUMORA`;
+
   root.innerHTML = `
-    <div class="article-meta">${esc(entry.section || 'Writing')} · ${esc(entry.date || '')}</div>
-    <h1>${esc(entry.title || 'Untitled')}</h1>
-    <p class="heading-note">${esc(entry.intro || '')}</p>
-    <div class="article-body">${(entry.content || '').split(/\n\s*\n/).map(paragraph =>
-      '<p>' + esc(paragraph).replace(/\n/g, '<br>') + '</p>'
-    ).join('')}</div>
-    ${entry.reference ? `<p class="small-note">Reference: <a href="${esc(entry.reference)}" target="_blank" rel="noopener noreferrer">Open original source ↗</a></p>` : ''}
-    <div class="article-actions">
-      <a class="outline-button" href="${pageFor(entry.section)}">Back to ${esc(entry.section || 'Writing')}</a>
-      <button class="outline-button" onclick="window.print()">Print</button>
-    </div>`;
+    <article class="lumora-article">
+
+      <div class="article-meta">
+        <span>${esc(entry.section || 'Writing')}</span>
+        <span class="article-date">${esc(entry.date || '')}</span>
+      </div>
+
+      <h1>${esc(entry.title || 'Untitled')}</h1>
+
+      ${entry.intro ? `<p class="heading-note">${esc(entry.intro)}</p>` : ''}
+
+      <div class="article-body">
+        ${(entry.content || '').split(/\n\s*\n/).map(paragraph =>
+          '<p>' + esc(paragraph).replace(/\n/g, '<br>') + '</p>'
+        ).join('')}
+      </div>
+
+      ${entry.reference ? `
+        <p class="small-note article-reference">
+          Reference:
+          <a href="${esc(entry.reference)}" target="_blank" rel="noopener noreferrer">Open original source ↗</a>
+        </p>` : ''}
+
+      <div class="article-actions">
+        <a class="outline-button" href="${pageFor(entry.section)}">Back to ${esc(entry.section || 'Writing')}</a>
+        <button class="outline-button" onclick="window.print()">Print</button>
+      </div>
+
+    </article>`;
 }
+
 
 function isUuid(value) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(String(value || ''));
