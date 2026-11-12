@@ -693,3 +693,229 @@ select:focus-visible, textarea:focus-visible {
   color: #39334f;
   font-weight: 700;
 }
+
+/* ==========================================
+   LUMORA — CINEMATIC HOMEPAGE
+========================================== */
+
+body.lumora-home {
+  margin: 0;
+  min-height: 100vh;
+  background: #28231f;
+  color: #f8f1e7;
+  overflow-x: hidden;
+}
+
+.lumora-home .lumora-header {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 28px 5.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lumora-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #f8f1e7;
+}
+
+.lumora-brand img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.lumora-brand strong {
+  display: block;
+  font: 600 22px/1.1 var(--ui);
+  letter-spacing: 2px;
+  color: #f8f1e7;
+}
+
+.lumora-brand small {
+  display: block;
+  margin-top: 5px;
+  color: #d1bfa9;
+  font: 500 9px/1.3 var(--body);
+  letter-spacing: 1.7px;
+}
+
+.lumora-home .lumora-menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  padding: 10px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #f8f1e7;
+  font: 600 10px var(--ui);
+  letter-spacing: 1.5px;
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 25px;
+}
+
+.hamburger-lines span {
+  display: block;
+  width: 25px;
+  height: 1px;
+  background: #f8f1e7;
+  transition: transform .25s ease;
+}
+
+.lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:nth-child(2) {
+  opacity: 0;
+}
+
+.lumora-menu-toggle[aria-expanded="true"] .hamburger-lines span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.lumora-home .lumora-nav {
+  display: none;
+  position: absolute;
+  top: 88px;
+  right: 5.5%;
+  width: min(340px, 88vw);
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(35,30,27,.97);
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+}
+
+.lumora-home .lumora-nav.open {
+  display: flex;
+}
+
+.lumora-home .lumora-nav a {
+  display: block;
+  padding: 12px 10px;
+  border-radius: 0;
+  color: #f4eadc;
+  font: 500 13px var(--body);
+  letter-spacing: .3px;
+}
+
+.lumora-home .lumora-nav a:hover,
+.lumora-home .lumora-nav a.current {
+  background: rgba(255,255,255,.09);
+  color: #ffffff;
+}
+
+.lumora-main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lumora-hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 140px 24px 70px;
+  background:
+    linear-gradient(
+      rgba(25,21,19,.48),
+      rgba(25,21,19,.58)
+    ),
+    url("assets/hero-literary-stilllife.webp")
+    center center / cover no-repeat;
+}
+
+.lumora-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lumora-kicker {
+  margin: 0 0 24px;
+  color: #e1cfb9;
+  font: 600 10px/1.5 var(--ui);
+  letter-spacing: 3px;
+}
+
+.lumora-hero h1 {
+  margin: 0;
+  color: #fffaf2;
+  font: 500 clamp(48px, 7vw, 88px)/1.04 var(--heading);
+  letter-spacing: -.8px;
+}
+
+.lumora-description {
+  margin: 24px 0 30px;
+  color: #f0e5d8;
+  font: 400 clamp(14px, 1.5vw, 17px)/1.7 var(--body);
+  letter-spacing: .3px;
+}
+
+.lumora-button {
+  display: inline-block;
+  padding: 14px 25px;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 2px;
+  background: transparent;
+  color: #fffaf2;
+  font: 600 11px/1.4 var(--ui);
+  letter-spacing: .8px;
+  transition: background .25s ease, color .25s ease;
+}
+
+.lumora-button:hover {
+  background: #f8f1e7;
+  color: #28231f;
+}
+
+@media (max-width: 600px) {
+  .lumora-home .lumora-header {
+    padding: 22px 6%;
+  }
+
+  .lumora-brand strong {
+    font-size: 19px;
+  }
+
+  .lumora-hero {
+    padding: 120px 22px 60px;
+    background-position: 58% center;
+  }
+
+  .lumora-hero h1 {
+    font-size: clamp(44px, 12vw, 62px);
+  }
+
+  .lumora-kicker {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .lumora-description {
+    margin: 20px 0 26px;
+  }
+}
