@@ -3141,34 +3141,36 @@ body {
     padding: 0;
   }
 
-  body.lumora-home .lumora-hero {
-    display: flex;
-    flex: 1 0 auto;
-    width: 100%;
-    min-height: calc(100vh - 78px);
-    min-height: calc(100svh - 78px);
-    height: auto;
-    margin: 0;
-    padding: 42px 21px;
-    align-items: center;
-    justify-content: center;
-    background-image:
-      linear-gradient(
-        rgba(25, 21, 19, .40),
-        rgba(25, 21, 19, .48)
-      ),
-      url("assets/hero-literary-stilllife.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 58% center;
-  }
+body.lumora-home .lumora-hero {
+  display: flex;
+  flex: 1 0 auto;
+  width: 100%;
+  min-height: calc(100vh - 78px);
+  min-height: calc(100svh - 78px);
+  height: calc(100svh - 78px);
+  margin: 0;
+  padding: 35px 22px;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(
+      rgba(25, 21, 19, .40),
+      rgba(25, 21, 19, .48)
+    ),
+    url("assets/hero-literary-stilllife.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
-  .lumora-hero-content {
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-    text-align: center;
-  }
+body.lumora-home .lumora-hero-content {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
 
   .lumora-kicker {
     margin: 0 0 18px;
