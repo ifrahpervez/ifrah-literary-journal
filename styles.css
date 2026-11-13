@@ -3145,9 +3145,10 @@ body.lumora-home .lumora-hero {
   display: flex;
   flex: 1 0 auto;
   width: 100%;
-  min-height: calc(100vh - 78px);
-  min-height: calc(100svh - 78px);
-  height: calc(100svh - 78px);
+min-height: 100vh;
+min-height: 100svh;
+height: 100vh;
+height: 100svh;
   margin: 0;
   padding: 35px 22px;
   align-items: center;
