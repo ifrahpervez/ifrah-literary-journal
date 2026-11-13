@@ -2959,13 +2959,22 @@ body {
   }
 }
 
+
 /* =====================================================
-   LUMORA — FINAL UNIFIED MOBILE LAYOUT
-   Applies to all public pages and the private Writing Desk.
-   Desktop styling remains unchanged.
+   LUMORA — UNIFIED MOBILE LAYOUT
+   A consistent, editorial experience on small screens
+   Desktop styles and existing content remain unchanged
 ===================================================== */
 
 @media screen and (max-width: 760px) {
+
+  /* GLOBAL MOBILE SETTINGS */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
   html,
   body {
@@ -2978,275 +2987,377 @@ body {
     font-size: 15px;
   }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
   img,
   video,
   iframe {
     max-width: 100%;
   }
 
-  /* HEADER */
+  /* HEADER — ALL LUMORA PAGES */
 
   body:has(.lumora-header) .lumora-header {
     position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    z-index: 100;
     display: flex;
     width: 100%;
-    max-width: none;
-    min-height: 72px;
+    min-height: 88px;
     margin: 0;
-    padding: 15px 20px;
+    padding: 15px 19px;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
     background: #28231f;
-    z-index: 100;
   }
 
-  body.lumora-home .lumora-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 18px 20px;
-  }
-
-  .lumora-brand {
-    display: inline-flex;
+  body:has(.lumora-header) .lumora-brand {
+    display: flex;
     flex: 1 1 auto;
     min-width: 0;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
   }
 
-  .lumora-brand img {
-    flex: 0 0 34px;
-    width: 34px;
-    height: 34px;
+  body:has(.lumora-header) .lumora-brand img {
+    display: block;
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
     object-fit: contain;
   }
 
-  .lumora-brand strong {
+  body:has(.lumora-header) .lumora-brand strong {
     display: block;
-    font-size: 19px;
-    line-height: 1.1;
-    letter-spacing: 1.5px;
-  }
-
-  .lumora-brand small {
-    display: block;
-    margin-top: 4px;
-    font-size: 8px;
-    line-height: 1.4;
-    letter-spacing: 1px;
-  }
-
-  /* MENU BUTTON */
-
-  body:has(.lumora-header) .lumora-menu-toggle {
-    display: inline-flex !important;
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 9px;
-    min-width: 66px;
-    min-height: 44px;
-    margin-left: auto;
-    padding: 8px 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    color: #f8f1e7;
-    font: 600 10px var(--ui);
+    font-size: 21px;
+    line-height: 1.15;
     letter-spacing: 1.4px;
   }
 
-  .hamburger-lines,
-  .hamburger-lines span {
-    width: 23px;
-  }
-
-  .hamburger-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .hamburger-lines span {
+  body:has(.lumora-header) .lumora-brand small {
     display: block;
-    height: 1px;
-    background: #f8f1e7;
+    margin-top: 5px;
+    font-size: 8px;
+    line-height: 1.4;
+    letter-spacing: 1.2px;
   }
 
-  /* DROPDOWN NAVIGATION */
-
-  body:has(.lumora-header) .lumora-nav {
-    display: none;
-    position: absolute;
-    top: calc(100% - 1px);
-    right: 16px;
-    left: auto;
-    z-index: 200;
-    width: min(340px, calc(100vw - 32px));
-    max-width: none;
-    max-height: calc(100svh - 100px);
-    overflow-x: hidden;
-    overflow-y: auto;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 2px;
-    padding: 12px;
-    border: 1px solid rgba(255,255,255,.18);
-    background: #28231f;
-    box-shadow: 0 12px 30px rgba(0,0,0,.22);
-  }
-
-  body:has(.lumora-header) .lumora-nav.open {
-    display: flex !important;
-  }
-
-  body:has(.lumora-header) .lumora-nav a {
+  body:has(.lumora-header) .lumora-menu-toggle {
     display: flex;
-    align-items: center;
-    width: 100%;
+    flex: 0 0 auto;
+    min-width: 65px;
     min-height: 44px;
-    padding: 10px 12px;
-    color: #f4f0e8;
-    font: 500 13px/1.45 var(--body);
-    overflow-wrap: anywhere;
+    margin-left: auto;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    font-size: 10px;
   }
 
-  body:has(.lumora-header) .lumora-nav a:hover,
-  body:has(.lumora-header) .lumora-nav a.current {
-    background: rgba(255,255,255,.09);
-    color: #fff;
+  /* HOMEPAGE — FULL MOBILE HERO */
+
+  body.lumora-home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #28231f;
   }
 
-  /* GENERAL PAGE WIDTH */
+  body.lumora-home .lumora-header {
+    flex: 0 0 auto;
+  }
 
-  main:not(.lumora-main) {
+  body.lumora-home .lumora-main {
+    display: flex;
+    flex: 1 0 auto;
     width: 100%;
-    max-width: none;
-    min-width: 0;
+    min-height: 0;
     margin: 0;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0;
   }
-
-  main.essays-page,
-  main.press-notebook-page,
-  main.article-reading-page {
-    width: 100%;
-    max-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  /* HOMEPAGE */
 
   body.lumora-home .lumora-hero {
     display: flex;
-    min-height: 100vh;
-    min-height: 100svh;
-    padding: 125px 22px 55px;
+    flex: 1 0 auto;
+    width: 100%;
+    min-height: calc(100vh - 88px);
+    min-height: calc(100dvh - 88px);
+    height: auto;
+    margin: 0;
+    padding: 45px 22px;
     align-items: center;
     justify-content: center;
+    background-image:
+      linear-gradient(
+        rgba(25, 21, 19, .40),
+        rgba(25, 21, 19, .48)
+      ),
+      url("assets/hero-literary-stilllife.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: 58% center;
   }
 
   .lumora-hero-content {
     width: 100%;
-    max-width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .lumora-kicker {
-    font-size: 9px;
-    line-height: 1.6;
-    letter-spacing: 2px;
+    margin: 0 0 19px;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 1.8px;
   }
 
   .lumora-hero h1 {
     max-width: 100%;
-    font-size: clamp(39px, 10vw, 56px);
-    line-height: 1.1;
+    margin: 0 auto;
+    font-size: clamp(36px, 9vw, 47px) !important;
+    line-height: 1.13;
+    letter-spacing: -.5px;
     overflow-wrap: normal;
   }
 
   .lumora-description {
     max-width: 100%;
-    font-size: 14px;
-    line-height: 1.8;
+    margin: 20px auto 27px;
+    font-size: 15px !important;
+    line-height: 1.65;
   }
 
   .lumora-button {
     display: inline-flex;
-    min-height: 44px;
+    min-height: 48px;
+    max-width: 100%;
+    padding: 12px 21px;
     align-items: center;
     justify-content: center;
-    padding: 12px 20px;
+    font-size: 14px;
   }
 
-  /* PAGE HEADINGS */
+  /* INNER PAGES — FOOTER AT THE END */
+
+  body:has(.lumora-copyright) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #f4f0e8;
+  }
+
+  body:has(.lumora-copyright) > .lumora-header {
+    flex: 0 0 auto;
+  }
+
+  body:has(.lumora-copyright) > main {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+
+  body:has(.lumora-copyright) > .lumora-copyright {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: auto;
+    padding: 17px 15px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  /* COLLECTION PAGES */
+
+  main.essays-page,
+  main.press-notebook-page {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 20px 35px;
+  }
 
   .page-heading,
   .essays-page .page-heading,
   .press-notebook-page .page-heading {
     width: 100%;
     max-width: none;
-    padding: 42px 0 25px;
+    margin: 0;
+    padding: 39px 0 22px;
   }
 
-  .page-heading h1,
-  .essays-page .page-heading h1,
-  .press-notebook-page .page-heading h1,
-  .writer-heading h1 {
+  .page-heading .overline {
+    margin: 0 0 15px;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+  }
+
+  .page-heading h1 {
     max-width: 100%;
-    font-size: clamp(34px, 9vw, 45px);
-    line-height: 1.14;
-    overflow-wrap: anywhere;
+    margin: 0 0 13px;
+    font-size: clamp(32px, 8vw, 39px) !important;
+    line-height: 1.17;
+    overflow-wrap: normal;
   }
 
-  .heading-note {
-    width: 100%;
-    max-width: none;
-    font-size: 14px;
-    line-height: 1.8;
+  .page-heading .heading-note {
+    display: block;
+    max-width: 100%;
+    margin: 0;
+    font-size: 14px !important;
+    line-height: 1.7;
+    overflow: visible;
   }
+
+  /* COLLECTION SECTION TITLE */
 
   .page-content {
     width: 100%;
-    padding: 12px 0 45px;
+    max-width: none;
+    margin: 0;
+    padding: 13px 0 30px;
   }
 
-  /* WRITER PAGE */
+  .section-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    margin: 0 0 12px;
+    padding: 0 0 15px;
+    border-bottom: 1px solid #d8c9bc;
+  }
+
+  .section-label span:first-child {
+    font-size: 22px !important;
+    line-height: 1.3;
+  }
+
+  .section-label .small-note {
+    display: none;
+  }
+
+  /* WRITING ENTRIES */
+
+  .entry-list {
+    display: grid;
+    width: 100%;
+    min-width: 0;
+    gap: 0;
+  }
+
+  .entry-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    gap: 6px;
+    padding: 19px 0 !important;
+    border-bottom: 1px solid #d8c9bc;
+  }
+
+  .entry-row > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .entry-kind,
+  .entry-date {
+    font-size: 10px !important;
+    line-height: 1.5;
+    letter-spacing: .5px;
+  }
+
+  .entry-row h2 {
+    margin: 0;
+    font-size: 21px !important;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .entry-row p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin: 3px 0;
+    font-size: 14px !important;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+
+  .entry-row .under-link {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 5px;
+    overflow-wrap: anywhere;
+  }
+
+  /* IN PRINT */
+
+  .published-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    padding: 17px 0;
+  }
+
+  /* ARCHIVE SEARCH AND FILTERS */
+
+  .archive-tools,
+  .archive-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    gap: 10px;
+    margin: 17px 0 22px;
+  }
+
+  .archive-tools input,
+  .archive-tools select,
+  .archive-controls input,
+  .archive-controls select {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    font-size: 14px;
+  }
+
+  /* WRITER PAGE — KEEP ITS DETAILED PRESENTATION */
 
   .writer-page {
     width: 100%;
     max-width: none;
-    padding: 0 20px 50px;
+    padding: 0 20px 40px;
   }
 
   .writer-heading {
     width: 100%;
-    padding: 42px 0 28px;
+    padding: 39px 0 25px;
+  }
+
+  .writer-heading h1 {
+    font-size: clamp(35px, 9vw, 45px);
+    line-height: 1.15;
   }
 
   .writer-feature {
     display: grid;
-    width: 100%;
     grid-template-columns: minmax(0, 1fr);
-    gap: 25px;
+    gap: 24px;
+    width: 100%;
     margin: 12px auto 0;
   }
 
   .writer-portrait {
     grid-column: 1;
     grid-row: 1;
-    width: min(220px, 80%);
+    width: min(220px, 78%);
     max-width: 220px;
     margin: 0 auto;
   }
@@ -3270,161 +3381,32 @@ body {
   }
 
   .writer-content h2 {
-    margin-top: 30px;
-    font-size: 27px;
+    margin-top: 28px;
+    font-size: 26px;
   }
 
-  /* COLLECTION HEADINGS */
-
-  .section-label {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 8px 12px;
-    min-width: 0;
-    margin-bottom: 15px;
-  }
-
-  .section-label span:first-child {
-    font-size: 25px;
-  }
-
-  .section-label span:last-child {
-    max-width: 100%;
-    font-size: 9px;
-  }
-
-  /* ESSAYS, OBSERVATIONS, OPINIONS AND IDEAS */
-
-  .entry-list {
-    display: grid;
-    width: 100%;
-    min-width: 0;
-    gap: 0;
-  }
-
-  .entry-row,
-  .essays-page .entry-row,
-  .press-notebook-page .entry-row {
-    display: grid;
-    width: 100%;
-    min-width: 0;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 7px;
-    padding: 18px 0;
-  }
-
-  .entry-row > * {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  .entry-kind {
-    font-size: 10px;
-    line-height: 1.6;
-  }
-
-  .entry-row h2 {
-    font-size: 23px;
-    line-height: 1.25;
-    overflow-wrap: anywhere;
-  }
-
-  .entry-row p {
-    max-width: 100%;
-    font-size: 13px;
-    line-height: 1.8;
-    overflow-wrap: anywhere;
-  }
-
-  .entry-date {
-    padding-top: 2px;
-    white-space: normal;
-  }
-
-  /* IN PRINT */
-
-  .published-page {
-    width: 100%;
-    gap: 10px;
-  }
-
-  .published-entry {
-    width: 100%;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 8px;
-    padding: 16px 0;
-  }
-
-  .pub-index {
-    font-size: 22px;
-  }
-
-  /* ARCHIVE */
-
-  .archive-tools,
-  .archive-controls {
-    display: grid;
-    width: 100%;
-    min-width: 0;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
-    margin: 15px 0 22px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-  }
-
-  .archive-tools input,
-  .archive-tools select,
-  .archive-controls input,
-  .archive-controls select {
-    width: 100%;
-    min-width: 0;
-    min-height: 46px;
-    padding: 11px 12px;
-    font-size: 16px;
-  }
-
-  /* CORRESPONDENCE */
-
-  .index-list {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
-  }
-
-  .index-list a {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-
-  .entry-row .under-link {
-    display: inline-block;
-    width: fit-content;
-    max-width: 100%;
-    overflow-wrap: anywhere;
-  }
-
-  /* ARTICLE READING PAGE */
+  /* FULL ARTICLE READING */
 
   main.article-reading-page {
-    padding-top: 0;
-    padding-bottom: 40px;
-  }
-
-  .article-reading-page .article-page,
-  .article-reading-page .lumora-article {
     width: 100%;
     max-width: none;
+    padding: 0 20px 40px;
+  }
+
+  .article-reading-page .article-page {
+    width: 100%;
+    max-width: none;
+    padding: 38px 0 24px;
+  }
+
+  .article-reading-page .lumora-article {
+    width: 100%;
     min-width: 0;
-    padding-top: 28px;
   }
 
   .article-reading-page .lumora-article h1 {
-    font-size: clamp(34px, 9vw, 44px);
-    line-height: 1.15;
-    overflow-wrap: anywhere;
+    font-size: clamp(33px, 8.5vw, 43px);
+    line-height: 1.17;
   }
 
   .article-reading-page .lumora-article .heading-note {
@@ -3432,591 +3414,63 @@ body {
     line-height: 1.8;
   }
 
-  .article-reading-page .lumora-article .article-body {
+  .article-reading-page .lumora-article .article-body,
+  .article-reading-page .lumora-article .article-body p {
+    display: block;
     width: 100%;
     max-width: none;
-    margin: 20px 0;
-    font-size: 15px;
-    line-height: 1.9;
+    font-size: 16px !important;
+    line-height: 1.85 !important;
+    overflow: visible;
   }
 
   .article-reading-page .lumora-article .article-body p {
-    font-size: 15px;
-    line-height: 1.9;
     margin-bottom: 19px;
-    overflow-wrap: anywhere;
   }
 
-  .article-reading-page .article-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-  }
-
-  /* PRIVATE WRITING DESK */
-
-  .desk-page {
-    width: 100%;
-    max-width: none;
-    padding: 0 20px 45px;
-  }
-
-  .desk-form {
-    width: 100%;
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .field,
-  .field.full {
-    grid-column: 1;
-    min-width: 0;
-  }
-
-  .field input,
-  .field select,
-  .field textarea {
-    width: 100%;
-    min-width: 0;
-    font-size: 16px;
-  }
-
-  #content {
-    min-height: 220px;
-  }
-
-  .desk-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-  }
-
-  .saved-row {
-    align-items: flex-start;
-    flex-direction: column;
-    width: 100%;
-    min-width: 0;
-  }
-
-  .saved-row > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-  }
-
-  /* FOOTER */
-
-  .lumora-copyright {
-    width: 100%;
-    padding: 17px 18px;
-    font-size: 10px;
-    line-height: 1.7;
-    text-align: center;
-  }
-
-  .footer {
-    padding: 20px;
-  }
-
-  .footer div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 13px;
-  }
-
-  /* GENERAL CONTROLS */
+  /* GENERAL MOBILE CONTROLS */
 
   button,
   input,
   select,
-  textarea,
-  .solid-button,
-  .outline-button,
-  .quiet-button {
+  textarea {
     max-width: 100%;
   }
 
-  a,
-  p,
-  h1,
-  h2,
-  h3 {
-    overflow-wrap: break-word;
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
   }
 }
 
-/* SMALL PHONES */
+/* VERY SMALL PHONES */
 
 @media screen and (max-width: 390px) {
 
   body:has(.lumora-header) .lumora-header {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
-  .lumora-brand {
-    gap: 7px;
+  body:has(.lumora-header) .lumora-brand img {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
   }
 
-  .lumora-brand img {
-    flex-basis: 30px;
-    width: 30px;
-    height: 30px;
-  }
-
-  .lumora-brand strong {
-    font-size: 17px;
-    letter-spacing: 1.2px;
-  }
-
-  .lumora-brand small {
-    font-size: 7px;
-    letter-spacing: .8px;
+  body:has(.lumora-header) .lumora-brand strong {
+    font-size: 19px;
   }
 
   body:has(.lumora-header) .lumora-menu-toggle {
     min-width: 58px;
-    gap: 7px;
-    font-size: 9px;
-  }
-
-  main:not(.lumora-main),
-  main.essays-page,
-  main.press-notebook-page,
-  main.article-reading-page {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page-heading h1,
-  .writer-heading h1 {
-    font-size: 33px;
-  }
-}
-
-/* ==============================================
-   LUMORA — MOBILE READABILITY ADJUSTMENT
-   Keeps the existing design and layout.
-   Refines typography, spacing and text fit only.
-================================================ */
-
-@media screen and (max-width: 760px) {
-
-  /* General reading text */
-  body {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  /* Homepage title */
-  .lumora-hero h1 {
-    font-size: clamp(34px, 8.5vw, 42px) !important;
-    line-height: 1.16;
-    letter-spacing: -0.4px;
-  }
-
-  .lumora-kicker {
-    font-size: 9px;
-    line-height: 1.5;
-  }
-
-  .lumora-description {
-    font-size: 14px !important;
-    line-height: 1.7;
-  }
-
-  /* Main headings on inner pages */
-  .page-heading h1,
-  .essays-page .page-heading h1,
-  .press-notebook-page .page-heading h1,
-  .writer-heading h1,
-  .article-page h1,
-  .lumora-article h1 {
-    font-size: clamp(29px, 7.5vw, 35px) !important;
-    line-height: 1.2;
-    letter-spacing: -0.3px;
-    overflow-wrap: break-word;
-  }
-
-  /* Introductory descriptions */
-  .heading-note,
-  .writer-intro-line,
-  .lumora-article .heading-note {
-    font-size: 14px !important;
-    line-height: 1.75;
-  }
-
-  /* Collection heading and its smaller description */
-  .section-label {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 4px;
-  }
-
-  .section-label span:first-child {
-    font-size: 21px !important;
-    line-height: 1.3;
-  }
-
-  .section-label span:last-child {
-    max-width: 100%;
-    font-size: 11px !important;
-    line-height: 1.5;
-    letter-spacing: 0.2px;
-  }
-
-  /* Writing titles in collections */
-  .entry-row h2 {
-    font-size: 20px !important;
-    line-height: 1.35;
-    margin-bottom: 5px;
-  }
-
-  /* Short descriptions beneath writing titles */
-  .entry-row p {
-    font-size: 14px !important;
-    line-height: 1.7;
-  }
-
-  .entry-kind,
-  .entry-date {
-    font-size: 10px !important;
-    line-height: 1.5;
-  }
-
-  /* The Writer page */
-  .writer-content > p {
-    font-size: 15px !important;
-    line-height: 1.8 !important;
-  }
-
-  .writer-content p.lead {
-    font-size: 15px !important;
-    line-height: 1.8 !important;
-  }
-
-  .writer-content h2 {
-    font-size: 23px !important;
-    line-height: 1.3;
-  }
-
-  .prose p {
-    font-size: 15px;
-    line-height: 1.8;
-  }
-
-  /* Full articles: keep the complete text readable */
-  .article-reading-page .article-body,
-  .article-reading-page .article-body p,
-  .lumora-article .article-body,
-  .lumora-article .article-body p {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-  }
-
-  /* Published writing */
-  .published-entry h2 {
-    font-size: 21px;
-    line-height: 1.3;
-  }
-
-  .published-entry p:not(.overline) {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  /* Navigation text */
-  .lumora-nav a {
-    font-size: 13px !important;
-    line-height: 1.5;
-  }
-
-  /* Buttons and links */
-  .lumora-button,
-  .under-link,
-  .solid-button,
-  .outline-button,
-  .quiet-button {
-    font-size: 12px;
-    line-height: 1.45;
-  }
-
-  /* Search and form controls */
-  .archive-tools input,
-  .archive-tools select,
-  .archive-controls input,
-  .archive-controls select,
-  .field input,
-  .field select,
-  .field textarea {
-    font-size: 16px !important;
-  }
-
-  /* Footer */
-  .lumora-copyright {
-    font-size: 11px;
-    line-height: 1.6;
-  }
-}
-
-/* Smaller phones */
-
-@media screen and (max-width: 390px) {
-
-  .lumora-hero h1 {
-    font-size: 34px !important;
-  }
-
-  .page-heading h1,
-  .essays-page .page-heading h1,
-  .press-notebook-page .page-heading h1,
-  .writer-heading h1,
-  .article-page h1,
-  .lumora-article h1 {
-    font-size: 29px !important;
-  }
-
-  .section-label span:first-child {
-    font-size: 20px !important;
-  }
-
-  .entry-row h2 {
-    font-size: 19px !important;
-  }
-
-  .entry-row p {
-    font-size: 13px !important;
-  }
-}
-
-/* ==============================================
-   LUMORA — MOBILE HOMEPAGE & PAGE SIMPLIFICATION
-   Preserve the existing visual identity.
-================================================ */
-
-@media screen and (max-width: 760px) {
-
-  /* HOMEPAGE: HEADER */
-
-  body.lumora-home .lumora-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    min-height: 68px;
-    padding: 13px 17px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    box-sizing: border-box;
-  }
-
-  body.lumora-home .lumora-brand {
-    flex: 1 1 auto;
-    min-width: 0;
-    gap: 8px;
-  }
-
-  body.lumora-home .lumora-brand img {
-    width: 32px;
-    height: 32px;
-    flex: 0 0 32px;
-  }
-
-  body.lumora-home .lumora-brand strong {
-    font-size: 18px;
-    letter-spacing: 1.4px;
-  }
-
-  body.lumora-home .lumora-brand small {
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-
-  body.lumora-home .lumora-menu-toggle {
-    flex: 0 0 auto;
-    min-width: 58px;
-    min-height: 42px;
-    margin-left: auto;
-    font-size: 9px;
-    gap: 7px;
-  }
-
-  /* HOMEPAGE: HERO IMAGE AND BACKGROUND */
-
-  body.lumora-home {
-    min-height: 100svh;
-    background: #28231f;
-  }
-
-  body.lumora-home .lumora-main {
-    width: 100%;
-    min-height: 100svh;
-    margin: 0;
-    padding: 0;
-  }
-
-  body.lumora-home .lumora-hero {
-    width: 100%;
-    height: 100svh;
-    min-height: 100svh;
-    box-sizing: border-box;
-    padding: 100px 20px 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-image:
-      linear-gradient(
-        rgba(25, 21, 19, .40),
-        rgba(25, 21, 19, .48)
-      ),
-      url("assets/hero-literary-stilllife.webp");
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 58% center;
-  }
-
-  .lumora-hero-content {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .lumora-hero h1 {
-    max-width: 100%;
-    margin: 0 auto;
-    font-size: clamp(34px, 8.5vw, 42px) !important;
-    line-height: 1.16;
-  }
-
-  .lumora-kicker {
-    margin-bottom: 17px;
-    font-size: 9px;
-    letter-spacing: 1.8px;
-  }
-
-  .lumora-description {
-    margin: 17px 0 23px;
-    font-size: 14px !important;
-    line-height: 1.6;
-  }
-
-  .lumora-button {
-    min-height: 44px;
-    padding: 12px 19px;
-  }
-
-  /* COLLECTION PAGES: LESS CLUTTER */
-
-  .essays-page .page-heading,
-  .press-notebook-page .page-heading {
-    padding-top: 30px;
-    padding-bottom: 18px;
-  }
-
-  .page-heading .overline {
-    margin-bottom: 10px;
-    font-size: 9px;
-    letter-spacing: 1.4px;
-  }
-
-  .page-heading h1 {
-    margin-bottom: 10px;
-  }
-
-  /* Keep introductions short on mobile */
-  .essays-page .heading-note,
-  .press-notebook-page .heading-note {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    margin-top: 8px;
-    font-size: 13px !important;
-    line-height: 1.6;
-  }
-
-  /* Remove the repeated secondary collection label */
-  .section-label .small-note {
-    display: none;
-  }
-
-  .section-label {
-    margin-bottom: 8px;
-    gap: 0;
-  }
-
-  .section-label span:first-child {
-    font-size: 19px !important;
-  }
-
-  /* Bring the writing list closer to its heading */
-  .page-content {
-    padding-top: 5px;
-    padding-bottom: 28px;
-  }
-
-  .entry-list {
-    gap: 0;
-  }
-
-  .entry-row {
-    padding: 13px 0 !important;
-    gap: 5px !important;
-  }
-
-  .entry-row h2 {
-    margin: 0;
-    font-size: 19px !important;
-    line-height: 1.3;
-  }
-
-  /* Short previews, without affecting full articles */
-  .entry-row p {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    margin: 3px 0;
-    font-size: 13px !important;
-    line-height: 1.6;
-  }
-
-  .entry-kind,
-  .entry-date {
-    font-size: 9px !important;
-  }
-
-  /* Keep full article text untouched and readable */
-  .article-reading-page .article-body,
-  .article-reading-page .article-body p {
-    display: block;
-    overflow: visible;
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-  }
-
-  /* Footer on inner pages */
-  .lumora-copyright {
-    padding: 13px 15px;
-    font-size: 10px;
-    line-height: 1.5;
-  }
-}
-
-/* EXTRA ADJUSTMENTS FOR VERY SMALL PHONES */
-
-@media screen and (max-width: 390px) {
-
-  body.lumora-home .lumora-header {
-    padding-left: 14px;
-    padding-right: 14px;
   }
 
   body.lumora-home .lumora-hero {
@@ -4026,17 +3480,22 @@ body {
   }
 
   body.lumora-home .lumora-hero h1 {
-    font-size: 34px !important;
+    font-size: 35px !important;
   }
 
-  .essays-page .heading-note,
-  .press-notebook-page .heading-note {
-    font-size: 12px !important;
+  main.essays-page,
+  main.press-notebook-page,
+  .writer-page,
+  main.article-reading-page {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .page-heading h1 {
+    font-size: 32px !important;
   }
 
   .entry-row h2 {
-    font-size: 18px !important;
+    font-size: 20px !important;
   }
 }
-
-
