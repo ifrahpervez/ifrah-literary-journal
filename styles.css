@@ -3790,4 +3790,253 @@ body {
   }
 }
 
+/* ==============================================
+   LUMORA — MOBILE HOMEPAGE & PAGE SIMPLIFICATION
+   Preserve the existing visual identity.
+================================================ */
+
+@media screen and (max-width: 760px) {
+
+  /* HOMEPAGE: HEADER */
+
+  body.lumora-home .lumora-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: 68px;
+    padding: 13px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  body.lumora-home .lumora-brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  body.lumora-home .lumora-brand img {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+  }
+
+  body.lumora-home .lumora-brand strong {
+    font-size: 18px;
+    letter-spacing: 1.4px;
+  }
+
+  body.lumora-home .lumora-brand small {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  body.lumora-home .lumora-menu-toggle {
+    flex: 0 0 auto;
+    min-width: 58px;
+    min-height: 42px;
+    margin-left: auto;
+    font-size: 9px;
+    gap: 7px;
+  }
+
+  /* HOMEPAGE: HERO IMAGE AND BACKGROUND */
+
+  body.lumora-home {
+    min-height: 100svh;
+    background: #28231f;
+  }
+
+  body.lumora-home .lumora-main {
+    width: 100%;
+    min-height: 100svh;
+    margin: 0;
+    padding: 0;
+  }
+
+  body.lumora-home .lumora-hero {
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+    box-sizing: border-box;
+    padding: 100px 20px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image:
+      linear-gradient(
+        rgba(25, 21, 19, .40),
+        rgba(25, 21, 19, .48)
+      ),
+      url("assets/hero-literary-stilllife.webp");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 58% center;
+  }
+
+  .lumora-hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .lumora-hero h1 {
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: clamp(34px, 8.5vw, 42px) !important;
+    line-height: 1.16;
+  }
+
+  .lumora-kicker {
+    margin-bottom: 17px;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+
+  .lumora-description {
+    margin: 17px 0 23px;
+    font-size: 14px !important;
+    line-height: 1.6;
+  }
+
+  .lumora-button {
+    min-height: 44px;
+    padding: 12px 19px;
+  }
+
+  /* COLLECTION PAGES: LESS CLUTTER */
+
+  .essays-page .page-heading,
+  .press-notebook-page .page-heading {
+    padding-top: 30px;
+    padding-bottom: 18px;
+  }
+
+  .page-heading .overline {
+    margin-bottom: 10px;
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+  .page-heading h1 {
+    margin-bottom: 10px;
+  }
+
+  /* Keep introductions short on mobile */
+  .essays-page .heading-note,
+  .press-notebook-page .heading-note {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-top: 8px;
+    font-size: 13px !important;
+    line-height: 1.6;
+  }
+
+  /* Remove the repeated secondary collection label */
+  .section-label .small-note {
+    display: none;
+  }
+
+  .section-label {
+    margin-bottom: 8px;
+    gap: 0;
+  }
+
+  .section-label span:first-child {
+    font-size: 19px !important;
+  }
+
+  /* Bring the writing list closer to its heading */
+  .page-content {
+    padding-top: 5px;
+    padding-bottom: 28px;
+  }
+
+  .entry-list {
+    gap: 0;
+  }
+
+  .entry-row {
+    padding: 13px 0 !important;
+    gap: 5px !important;
+  }
+
+  .entry-row h2 {
+    margin: 0;
+    font-size: 19px !important;
+    line-height: 1.3;
+  }
+
+  /* Short previews, without affecting full articles */
+  .entry-row p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin: 3px 0;
+    font-size: 13px !important;
+    line-height: 1.6;
+  }
+
+  .entry-kind,
+  .entry-date {
+    font-size: 9px !important;
+  }
+
+  /* Keep full article text untouched and readable */
+  .article-reading-page .article-body,
+  .article-reading-page .article-body p {
+    display: block;
+    overflow: visible;
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+  }
+
+  /* Footer on inner pages */
+  .lumora-copyright {
+    padding: 13px 15px;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+}
+
+/* EXTRA ADJUSTMENTS FOR VERY SMALL PHONES */
+
+@media screen and (max-width: 390px) {
+
+  body.lumora-home .lumora-header {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  body.lumora-home .lumora-hero {
+    padding-left: 17px;
+    padding-right: 17px;
+    background-position: 60% center;
+  }
+
+  body.lumora-home .lumora-hero h1 {
+    font-size: 34px !important;
+  }
+
+  .essays-page .heading-note,
+  .press-notebook-page .heading-note {
+    font-size: 12px !important;
+  }
+
+  .entry-row h2 {
+    font-size: 18px !important;
+  }
+}
+
 
